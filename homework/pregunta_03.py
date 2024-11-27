@@ -1,3 +1,5 @@
+import pandas as pd
+
 """
 Escriba el codigo que ejecute la accion solicitada en cada pregunta. Los
 datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y 
@@ -19,5 +21,9 @@ def pregunta_03():
     D     6
     E    14
     Name: count, dtype: int64
-
     """
+    df = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    return df['c1'].value_counts().sort_index()
+
+if __name__ == '__main__':
+    print(pregunta_03())

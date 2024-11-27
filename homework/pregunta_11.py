@@ -1,3 +1,4 @@
+import pandas as pd
 """
 Escriba el codigo que ejecute la accion solicitada en cada pregunta. Los
 datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y 
@@ -22,3 +23,10 @@ def pregunta_11():
     38   38      d,e
     39   39    a,d,f
     """
+    df = pd.read_csv('files/input/tbl1.tsv', sep='\t')
+    df = df.sort_values(by=['c0', 'c4'])
+    df = df.groupby('c0')['c4'].apply(lambda x: ','.join(x.astype(str))).reset_index()
+    return df
+
+if __name__ == "__main__":
+    print(pregunta_11())

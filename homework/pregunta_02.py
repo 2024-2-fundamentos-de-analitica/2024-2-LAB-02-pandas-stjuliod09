@@ -5,6 +5,7 @@ datos requeridos se encuentran en los archivos `tbl0.tsv`, `tbl1.tsv` y
 librerias de pandas para resolver las preguntas.
 """
 
+import pandas as pd
 
 def pregunta_02():
     """
@@ -12,5 +13,10 @@ def pregunta_02():
 
     Rta/
     4
-
     """
+    df = pd.read_csv('files/input/tbl0.tsv', sep='\t')
+    print(df.shape)
+    return df.shape[1]
+
+if __name__ == '__main__':
+    print(pregunta_02())
